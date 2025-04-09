@@ -24,4 +24,9 @@ public class PersonaController {
         return ResponseEntity.ok(personaRepository.save(persona));
     }
 
+    @GetMapping("/nombre/{nombre}")
+    ResponseEntity<List<Persona>> getPersonsByName(@PathVariable String nombre) {
+        return ResponseEntity.ok(personaRepository.findByNombre(nombre));
+    }
+
 }

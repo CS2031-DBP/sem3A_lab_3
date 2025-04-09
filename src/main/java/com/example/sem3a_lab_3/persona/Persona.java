@@ -2,6 +2,7 @@ package com.example.sem3a_lab_3.persona;
 
 
 import com.example.sem3a_lab_3.artista.Artista;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class Persona {
 
     private String apellido;
 
-    @OneToOne(mappedBy = "persona")
-    Artista artista;
+    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Artista artista;
 }
