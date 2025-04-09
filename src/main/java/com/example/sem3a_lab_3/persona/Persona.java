@@ -13,11 +13,14 @@ public class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nombre", unique = false)
     private String nombre;
 
+    @Column(name = "apellido", unique = false )
     private String apellido;
 
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
+    @JoinColumn(name="artista_id")
     @JsonManagedReference
     private Artista artista;
 }
