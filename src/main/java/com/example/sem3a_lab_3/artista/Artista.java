@@ -1,6 +1,7 @@
 package com.example.sem3a_lab_3.artista;
 
 
+import com.example.sem3a_lab_3.persona.Persona;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,4 +14,6 @@ public class Artista {
 
     private String username;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    Persona persona;
 }
